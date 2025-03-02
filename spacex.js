@@ -53,7 +53,7 @@ function createLaunchCard(launch) {
     const launchCard = document.createElement("div");
     launchCard.className = "launch-card";
 
-    // Format details to 10 words per line
+    // Format details to 13 words per line
     const details = launch.details || "No details available.";
     const formattedDetails = formatDetails(details);
 
@@ -91,14 +91,14 @@ function createLaunchCard(launch) {
     return launchCard;
 }
 
-// Format details to 10 words per line
+// Format details to 13 words per line
 function formatDetails(details) {
     const words = details.split(" ");
     let formattedDetails = "";
     for (let i = 0; i < words.length; i++) {
         formattedDetails += words[i] + " ";
-        if ((i + 1) % 10 === 0) {
-            formattedDetails += "<br>"; // Add a line break after every 10 words
+        if ((i + 1) % 13 === 0) { // Change 10 to 13 for 13 words per line
+            formattedDetails += "<br>"; // Add a line break after every 13 words
         }
     }
     return formattedDetails.trim(); // Remove trailing space

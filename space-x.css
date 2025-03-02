@@ -92,6 +92,8 @@ button:hover {
     margin: 5px 0;
     word-wrap: break-word;
     white-space: pre-line; /* Allow wrapping with newlines */
+    text-align: left;
+
 }
 /* Mission Patch Styles */
 .mission-patch img {
