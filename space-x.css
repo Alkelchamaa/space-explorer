@@ -171,3 +171,13 @@ button:hover {
         max-width: 100%;
     }
 }
+.launch-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Add spacing between items */
+    margin: 10px 0;
+}
+
+.launch-info p {
+    margin: 0; /* Remove default paragraph margins */
+}

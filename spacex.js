@@ -53,13 +53,18 @@ function createLaunchCard(launch) {
     const launchCard = document.createElement("div");
     launchCard.className = "launch-card";
 
+    // Format details to 10 words per line
+    const details = launch.details || "No details available.";
+    const formattedDetails = formatDetails(details);
+
     // Launch details
     launchCard.innerHTML = `
         <h4>${launch.name}</h4>
-        <p><strong>Date:</strong> ${new Date(launch.date_utc).toLocaleDateString()}</p>
-        <p><strong>Details:</strong> ${launch.details || "No details available."}</p>
-        <p><strong>Rocket:</strong> ${launch.rocket}</p>
-        <p><strong>Launchpad:</strong> ${launch.launchpad}</p>
+        <div class="launch-info">
+            <p><strong>Date:</strong> ${new Date(launch.date_utc).toLocaleDateString()}</p>
+            <p><strong>Rocket:</strong> ${launch.rocket}</p>
+            <p><strong>Details:</strong> ${formattedDetails}</p>
+        </div>
     `;
 
     // Mission patch
@@ -84,6 +89,19 @@ function createLaunchCard(launch) {
     }
 
     return launchCard;
+}
+
+// Format details to 10 words per line
+function formatDetails(details) {
+    const words = details.split(" ");
+    let formattedDetails = "";
+    for (let i = 0; i < words.length; i++) {
+        formattedDetails += words[i] + " ";
+        if ((i + 1) % 10 === 0) {
+            formattedDetails += "<br>"; // Add a line break after every 10 words
+        }
+    }
+    return formattedDetails.trim(); // Remove trailing space
 }
 
 // Toggle launch photos visibility
