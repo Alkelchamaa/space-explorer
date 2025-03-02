@@ -1,7 +1,10 @@
 // SpaceX API URL
 const SPACEX_API_URL = 'https://api.spacexdata.com/v5/launches';
 
-// Fetch upcoming launches
+/**
+ * Fetch and display upcoming SpaceX launches.
+ * Retrieves the latest upcoming launches and displays up to 20 of them.
+ */
 async function getUpcomingLaunches() {
     showLoading();
     try {
@@ -16,7 +19,10 @@ async function getUpcomingLaunches() {
     }
 }
 
-// Fetch past launches
+/**
+ * Fetch and display past SpaceX launches.
+ * Retrieves the most recent past launches and displays up to 20 of them.
+ */
 async function getPastLaunches() {
     showLoading();
     try {
@@ -31,7 +37,9 @@ async function getPastLaunches() {
     }
 }
 
-// Display launches with images and toggle button
+/**
+ * Displays a list of launch cards in the UI.
+ */
 function displayLaunches(launches, title) {
     const launchList = document.getElementById("launch-list");
     launchList.innerHTML = `<h3>${title}</h3>`; // Add a title for the section
@@ -48,14 +56,12 @@ function displayLaunches(launches, title) {
     });
 }
 
-// Create a launch card with conditional "View Launch Images" button
+/**
+ * Creates a launch card element with details and an optional "View Launch Images" button.
+ */
 function createLaunchCard(launch) {
     const launchCard = document.createElement("div");
     launchCard.className = "launch-card";
-
-    // Format details to 13 words per line
-    const details = launch.details || "No details available.";
-    const formattedDetails = formatDetails(details);
 
     // Launch details
     launchCard.innerHTML = `
@@ -63,11 +69,11 @@ function createLaunchCard(launch) {
         <div class="launch-info">
             <p><strong>Date:</strong> ${new Date(launch.date_utc).toLocaleDateString()}</p>
             <p><strong>Rocket:</strong> ${launch.rocket}</p>
-            <p><strong>Details:</strong> ${formattedDetails}</p>
+            <p class="details"><strong>Details:</strong> ${launch.details || "No details available."}</p>
         </div>
     `;
 
-    // Mission patch
+    // Mission patch (if available)
     if (launch.links.patch.large) {
         launchCard.innerHTML += `
             <div class="mission-patch">
@@ -76,7 +82,7 @@ function createLaunchCard(launch) {
         `;
     }
 
-    // Add "View Launch Images" button only if there are photos
+    // Add "View Launch Images" button only if there are photos available
     if (launch.links.flickr?.original?.length > 0) {
         launchCard.innerHTML += `
             <button class="toggle-button" onclick="togglePhotos(this)">View Launch Images</button>
@@ -91,20 +97,9 @@ function createLaunchCard(launch) {
     return launchCard;
 }
 
-// Format details to 13 words per line
-function formatDetails(details) {
-    const words = details.split(" ");
-    let formattedDetails = "";
-    for (let i = 0; i < words.length; i++) {
-        formattedDetails += words[i] + " ";
-        if ((i + 1) % 13 === 0) { // Change 10 to 13 for 13 words per line
-            formattedDetails += "<br>"; // Add a line break after every 13 words
-        }
-    }
-    return formattedDetails.trim(); // Remove trailing space
-}
-
-// Toggle launch photos visibility
+/**
+ * Toggles the visibility of launch photos when the "View Launch Images" button is clicked. * 
+ */
 function togglePhotos(button) {
     const photosContainer = button.nextElementSibling;
     if (photosContainer.style.display === "none") {
@@ -116,15 +111,19 @@ function togglePhotos(button) {
     }
 }
 
-// Show loading state
+/**
+ * Displays a loading indicator while data is being fetched.
+ */
 function showLoading() {
     document.getElementById("loading").style.display = "block";
 }
 
-// Hide loading state
+/**
+ * Hides the loading indicator once data has been loaded.
+ */
 function hideLoading() {
     document.getElementById("loading").style.display = "none";
 }
 
-// Load upcoming launches by default
+// Load upcoming launches by default when the page loads
 window.onload = getUpcomingLaunches;

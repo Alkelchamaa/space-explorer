@@ -1,14 +1,19 @@
 :root {
-    --primary-bg: #0a0a2a;
-    --secondary-bg: #1c1c3b;
-    --text-color: white;
-    --button-bg: #ff9800;
-    --button-hover: #e68900;
-    --border-radius: 10px;
-    --font-family: 'Arial', sans-serif;
+    --primary-bg: #0a0a2a; /* Dark blue background */
+    --secondary-bg: #1c1c3b; /* Slightly lighter blue for sections */
+    --text-color: white; /* Default text color */
+    --button-bg: #ff9800; /* Button color */
+    --button-hover: #e68900; /* Button hover color */
+    --border-radius: 10px; /* Rounded corners */
+    --font-family: 'Arial', sans-serif; /* Default font */
 }
 
-/* General Styles */
+/*  
+==================================================
+  General Styles
+  - Applies styles to the entire document
+==================================================
+*/
 body {
     font-family: var(--font-family);
     background-color: var(--primary-bg);
@@ -23,6 +28,12 @@ body {
     text-align: center;
 }
 
+/*  
+==================================================
+  Header & Navigation Bar
+  - Styles for the header and navigation links
+==================================================
+*/
 header {
     background-color: var(--secondary-bg);
     padding: 20px;
@@ -40,7 +51,7 @@ nav ul {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap; /* Allow nav items to wrap on smaller screens */
+    flex-wrap: wrap; /* Allows items to wrap on small screens */
 }
 
 nav ul li a {
@@ -53,24 +64,40 @@ nav ul li a:hover {
     color: var(--button-bg);
 }
 
+/*  
+==================================================
+  Main Content Area
+  - Defines layout and section spacing
+==================================================
+*/
 main {
     padding: 20px;
     width: 100%;
-    max-width: 1200px; /* Limit the maximum width of the main content */
+    max-width: 1200px; /* Limits content width */
 }
 
 section {
     margin-bottom: 40px;
 }
 
-/* Loading State */
+/*  
+==================================================
+  Loading State
+  - Displays a loading message when fetching data
+==================================================
+*/
 #loading {
     display: none;
     font-size: 1.2rem;
     margin: 20px 0;
 }
 
-/* Buttons */
+/*  
+==================================================
+  Buttons & Inputs
+  - Styles for buttons and date input fields
+==================================================
+*/
 button {
     background-color: var(--button-bg);
     color: var(--text-color);
@@ -87,7 +114,6 @@ button:hover {
     background-color: var(--button-hover);
 }
 
-/* Date Input */
 input[type="date"] {
     background-color: var(--button-bg);
     color: var(--text-color);
@@ -99,31 +125,41 @@ input[type="date"] {
     transition: background-color 0.3s ease;
     margin: 5px;
 }
-input[type="date"]:hover{
+
+input[type="date"]:hover {
     background-color: var(--button-hover);
 }
-/* Gallery Styles */
+
+/*  
+==================================================
+  Gallery Styles (Launch Images)
+  - Displays images in a responsive grid layout
+==================================================
+*/
 .gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Ensures 4 images in a row */
+    grid-template-columns: repeat(3, 1fr); /* 3 images per row */
     gap: 10px;
     justify-content: center;
 }
 
 .gallery img {
     width: 100%;
-    max-width: none; /* Allows images to take up full grid space */
     height: auto;
     border-radius: var(--border-radius);
     transition: transform 0.3s ease;
 }
 
-
 .gallery img:hover {
     transform: scale(1.1);
 }
 
-/* APOD Section */
+/*  
+==================================================
+  APOD (Astronomy Picture of the Day) Section
+  - Styles for the NASA APOD feature
+==================================================
+*/
 #apod {
     padding: 20px;
     border-radius: var(--border-radius);
@@ -137,8 +173,8 @@ input[type="date"]:hover{
     height: auto;
     border-radius: var(--border-radius);
     display: block;
-    margin: 0 auto; /* Center the image */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional: adds a subtle shadow */
+    margin: 0 auto; /* Center image */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 #apod-title {
@@ -151,25 +187,12 @@ input[type="date"]:hover{
     line-height: 1.5;
 }
 
-/* Mars Rover Section */
-#mars-rover {
-    padding: 20px;
-    border-radius: var(--border-radius);
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-/* EPIC Section */
-#epic {
-    padding: 20px;
-    border-radius: var(--border-radius);
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-/* Weather Section */
+/*  
+==================================================
+  Weather Section
+  - Styles for displaying weather information
+==================================================
+*/
 .container {
     padding: 20px;
     border-radius: var(--border-radius);
@@ -220,64 +243,58 @@ input[type="date"]:hover{
     font-size: 1rem;
 }
 
-/* Responsive Design */
+/*  
+==================================================
+  Responsive Design
+  - Adjusts styles for different screen sizes
+==================================================
+*/
 @media (max-width: 768px) {
-    /* Adjust layout for tablets and smaller screens */
     nav ul {
         flex-direction: column;
         gap: 10px;
     }
+
     header h1 {
-        font-size: 25px; /* Slightly smaller for tablets */
+        font-size: 25px;
     }
+
     .gallery {
-        grid-template-columns: repeat(2, 1fr); /* 2 images per row on smaller screens */
+        grid-template-columns: repeat(2, 1fr); /* 2 images per row */
     }
-    #apod-title {
-        font-size: 1rem; /* Smaller title for mobile */
-    }
+
     button, input[type="date"] {
-        width: 150px; /* Full-width buttons on smaller screens */
+        width: 150px;
         margin: 5px 0;
     }
+
     p {
         font-size: 20px;
     }
-    .weather-cards {
-        flex-direction: column;
-        align-items: center;
-    }
+
     #apod-desc {
         font-size: 0.8rem;
-        max-width: 450px; /* Adjusted for tablets */
+        max-width: 450px;
         margin-left: 15px;
-    }
-    .card {
-        max-width: 100%;
     }
 }
 
 @media (max-width: 480px) {
-    /* Adjust layout for mobile devices */
     header h1 {
         font-size: 15px;
     }
-    #apod-title {
-        font-size: 0.5rem; /* Smaller title for mobile */
-    }
+
     nav ul li a {
         font-size: 1rem;
     }
+
+    .gallery {
+        grid-template-columns: repeat(1, 1fr); /* 1 image per row */
+    }
+
     #apod-desc {
         font-size: 0.5rem;
-        max-width: 350px; /* Adjusted for tablets */
+        max-width: 350px;
         margin-left: 10px;
     }
-    .gallery {
-        grid-template-columns: repeat(1, 1fr); /* 1 image per row on mobile */
-    }
-    #apod img {
-        margin-left: 0; /* Remove left margin on mobile */
-    }
-    
 }

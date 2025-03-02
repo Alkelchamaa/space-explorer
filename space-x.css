@@ -1,12 +1,14 @@
+/* Root Variables */
 :root {
-    --primary-bg: #0a0a2a;
-    --secondary-bg: #1c1c3b;
-    --text-color: white;
-    --button-bg: #ff9800;
-    --button-hover: #e68900;
-    --border-radius: 10px;
-    --font-family: 'Arial', sans-serif;
+    --primary-bg: #0a0a2a; /* Main background color */
+    --secondary-bg: #1c1c3b; /* Secondary background color */
+    --text-color: white; /* Text color */
+    --button-bg: #ff9800; /* Button background color */
+    --button-hover: #e68900; /* Button hover color */
+    --border-radius: 10px; /* Border radius for rounded elements */
+    --font-family: 'Arial', sans-serif; /* Font family */
 }
+
 /* General Styles */
 body {
     font-family: var(--font-family);
@@ -21,14 +23,17 @@ body {
     justify-content: center;
     text-align: center;
 }
+
+/* Header Styling */
 header {
     background-color: var(--secondary-bg);
     padding: 20px;
     text-align: center;
 }
 
+/* Navigation Menu */
 nav ul {
-    list-style: none;
+    list-style: none; /* Remove bullet points */
     padding: 0;
     display: flex;
     justify-content: center;
@@ -42,13 +47,15 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: var(--button-bg);
+    color: var(--button-bg); /* Highlight effect on hover */
 }
 
+/* Main Content */
 main {
     padding: 20px;
 }
 
+/* Sections */
 section {
     margin-bottom: 40px;
 }
@@ -60,7 +67,7 @@ section {
     margin: 20px 0;
 }
 
-/* Buttons */
+/* Button Styles */
 button {
     background-color: var(--button-bg);
     color: var(--text-color);
@@ -76,25 +83,28 @@ button {
 button:hover {
     background-color: var(--button-hover);
 }
+
 /* Launch Card Styles */
 .launch-card {
     background-color: var(--secondary-bg);
     padding: 20px;
     margin: 20px 0;
     border-radius: var(--border-radius);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adds shadow effect */
 }
+
 .launch-card h4 {
     margin: 0 0 10px;
     color: var(--button-bg);
 }
+
 .launch-card p {
     margin: 5px 0;
     word-wrap: break-word;
-    white-space: pre-line; /* Allow wrapping with newlines */
+    white-space: pre-line; /* Allows text wrapping with newlines */
     text-align: left;
-
 }
+
 /* Mission Patch Styles */
 .mission-patch img {
     max-width: 150px; /* Smaller size for mission patches */
@@ -102,6 +112,7 @@ button:hover {
     margin: 10px 0;
     border-radius: var(--border-radius);
 }
+
 /* Launch Photos Styles */
 .launch-photos {
     display: flex;
@@ -109,6 +120,7 @@ button:hover {
     gap: 10px;
     margin-top: 10px;
 }
+
 .launch-photos img {
     max-width: 150px; /* Smaller size for launch photos */
     height: auto;
@@ -118,9 +130,10 @@ button:hover {
 }
 
 .launch-photos img:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Slight zoom effect on hover */
 }
-/* Responsive Design */
+
+/* Responsive Design for Tablets */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -147,6 +160,8 @@ button:hover {
         max-width: 100%;
     }
 }
+
+/* Responsive Design for Mobile Devices */
 @media (max-width: 480px) {
     nav ul {
         flex-direction: column;
@@ -173,6 +188,8 @@ button:hover {
         max-width: 100%;
     }
 }
+
+/* Launch Information Section */
 .launch-info {
     display: flex;
     flex-direction: column;
@@ -182,4 +199,13 @@ button:hover {
 
 .launch-info p {
     margin: 0; /* Remove default paragraph margins */
+}
+
+/* Style for the details paragraph */
+.details {
+    max-width: 500px; /* Controls the width of text */
+    word-wrap: break-word; /* Ensures long words don't overflow */
+    white-space: normal; /* Allows text to wrap naturally */
+    line-height: 1.5; /* Improves readability */
+    margin: 10px 0; /* Adds some spacing */
 }
