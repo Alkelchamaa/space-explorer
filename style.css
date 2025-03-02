@@ -1,0 +1,84 @@
+
+/* CSS Variables */
+:root {
+  --primary-bg: #0a0a2a;
+  --secondary-bg: #1c1c3b;
+  --text-color: white;
+  --button-bg: #ff9800;
+  --button-hover: #e68900;
+  --border-radius: 10px;
+  --font-family: 'Arial', sans-serif;
+}
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: var(--font-family);
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Container Styling */
+.container {
+  background-color: var(--secondary-bg);
+  border-radius: var(--border-radius);
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 90%;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Heading Styling */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Paragraph Styling */
+p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Button Styling */
+button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--button-bg);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.05);
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

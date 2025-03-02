@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Explorer - SpaceX Launches</title>
+    <link rel="stylesheet" href="space-x.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="APOD.html">APOD</a></li>
+                <li><a href="#">space-x</a></li>
+            </ul>
+        </nav>
+        <h1>Space Explorer 🚀</h1>
+        <p>SpaceX Launches & Images</p>
+    </header>
+
+    <main>
+        <section id="spacex-launches">
+            <h2>SpaceX Launches</h2>
+            <button onclick="getUpcomingLaunches()">Upcoming Launches</button>
+            <button onclick="getPastLaunches()">Past Launches</button>
+            <div id="loading">Loading...</div>
+            <div id="launch-list"></div>
+        </section>
+    </main>
+
+    <script src="spacex.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Explorer Dashboard 🚀</title>
+   <link rel="stylesheet" href="APOD.css">
+</head>
+<body>
+  <nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">APOD</a></li>
+        <li><a href="space-x.html">space-x</a></li>
+    </ul>
+  </nav>
+    <header>
+        <h1>Space Explorer Dashboard 🚀</h1>
+        <p>Explore the universe with NASA APIs</p>
+    </header>
+    <main>
+        <!-- APOD Section -->
+        <section id="apod">
+            <h2>Astronomy Picture of the Day</h2>
+            <input type="date" id="apod-date" onchange="getAPODByDate()">
+            <div id="loading">Loading...</div>
+            <img id="apod-img"  alt="Astronomy Picture">
+            <p id="apod-title"></p>
+            <p id="apod-desc"></p>
+        </section>
+
+        <!-- Mars Rover Section -->
+        <section id="mars-rover">
+            <h2>Mars Rover Images</h2>
+            <button onclick="getMarsPhotos('curiosity')">Curiosity</button>
+            <button onclick="getMarsPhotos('perseverance')">Perseverance</button>
+            <div class="gallery" id="rover-gallery"></div>
+        </section>
+
+        <!-- EPIC Section -->
+        <section id="epic">
+            <h2>Earth Polychromatic Imaging Camera (EPIC)</h2>
+            <button onclick="getEPICImages()">View Earth Images</button>
+            <div class="gallery" id="epic-gallery"></div>
+        </section>
+    </main>
+    <section>
+    <div class="container">
+        <h1>Earth vs Mars Weather</h1>
+        <div class="input-section">
+          <label for="city">Enter a City:</label>
+          <input type="text" id="city" placeholder="e.g., London">
+          <button id="fetchWeather">Get Weather</button>
+        </div>
+        <div class="weather-cards">
+          <div class="card city-card">
+            <h2 id="cityName">City Weather</h2>
+            <p id="cityWeather">Enter a city to see weather.</p>
+          </div>
+          <div class="card mars-card">
+            <h2>Mars Weather</h2>
+            <p id="marsWeather">Loading Mars weather...</p>
+          </div>
+          <div class="card difference-card">
+            <h2>Difference</h2>
+            <p id="differenceWeather">Difference will appear here.</p>
+          </div>
+        </div>
+      </div>
+      <script src="weather.js"></script>
+    </section>
+
+    <script src="APOD.js"></script>
+</body>
+</html>

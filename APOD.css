@@ -1,0 +1,283 @@
+:root {
+    --primary-bg: #0a0a2a;
+    --secondary-bg: #1c1c3b;
+    --text-color: white;
+    --button-bg: #ff9800;
+    --button-hover: #e68900;
+    --border-radius: 10px;
+    --font-family: 'Arial', sans-serif;
+}
+
+/* General Styles */
+body {
+    font-family: var(--font-family);
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+header {
+    background-color: var(--secondary-bg);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow nav items to wrap on smaller screens */
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+    color: var(--button-bg);
+}
+
+main {
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px; /* Limit the maximum width of the main content */
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+/* Loading State */
+#loading {
+    display: none;
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+/* Buttons */
+button {
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+/* Date Input */
+input[type="date"] {
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+input[type="date"]:hover{
+    background-color: var(--button-hover);
+}
+/* Gallery Styles */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Ensures 4 images in a row */
+    gap: 10px;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: none; /* Allows images to take up full grid space */
+    height: auto;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease;
+}
+
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* APOD Section */
+#apod {
+    padding: 20px;
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#apod img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    display: block;
+    margin: 0 auto; /* Center the image */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional: adds a subtle shadow */
+}
+
+#apod-title {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+#apod-desc {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Mars Rover Section */
+#mars-rover {
+    padding: 20px;
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* EPIC Section */
+#epic {
+    padding: 20px;
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Weather Section */
+.container {
+    padding: 20px;
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.input-section input {
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: none;
+    width: 100%;
+    max-width: 300px;
+}
+
+.weather-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: var(--secondary-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+}
+
+.card h2 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+}
+
+.card p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Adjust layout for tablets and smaller screens */
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    header h1 {
+        font-size: 25px; /* Slightly smaller for tablets */
+    }
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 images per row on smaller screens */
+    }
+    #apod-title {
+        font-size: 1rem; /* Smaller title for mobile */
+    }
+    button, input[type="date"] {
+        width: 150px; /* Full-width buttons on smaller screens */
+        margin: 5px 0;
+    }
+    p {
+        font-size: 20px;
+    }
+    .weather-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    #apod-desc {
+        font-size: 0.8rem;
+        max-width: 450px; /* Adjusted for tablets */
+        margin-left: 15px;
+    }
+    .card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjust layout for mobile devices */
+    header h1 {
+        font-size: 15px;
+    }
+    #apod-title {
+        font-size: 0.5rem; /* Smaller title for mobile */
+    }
+    nav ul li a {
+        font-size: 1rem;
+    }
+    #apod-desc {
+        font-size: 0.5rem;
+        max-width: 350px; /* Adjusted for tablets */
+        margin-left: 10px;
+    }
+    .gallery {
+        grid-template-columns: repeat(1, 1fr); /* 1 image per row on mobile */
+    }
+    #apod img {
+        margin-left: 0; /* Remove left margin on mobile */
+    }
+    
+}
