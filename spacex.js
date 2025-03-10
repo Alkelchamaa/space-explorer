@@ -7,11 +7,24 @@ const SPACEX_API_URL = 'https://api.spacexdata.com/v5/launches';
  */
 async function getUpcomingLaunches() {
     showLoading();
+
+    // Check if data exists in localStorage
+    const cachedLaunches = localStorage.getItem("upcomingLaunches");
+    if (cachedLaunches) {
+        displayLaunches(JSON.parse(cachedLaunches), "Upcoming Launches");
+        hideLoading();
+        return;
+    }
+
     try {
         const response = await fetch(`${SPACEX_API_URL}/upcoming`);
         if (!response.ok) throw new Error("Failed to fetch upcoming launches");
         const data = await response.json();
-        displayLaunches(data.slice(0, 20), "Upcoming Launches"); // Display only 20 launches
+        
+        // Save data to localStorage
+        localStorage.setItem("upcomingLaunches", JSON.stringify(data.slice(0, 20)));
+
+        displayLaunches(data.slice(0, 20), "Upcoming Launches");
     } catch (error) {
         console.error("Error fetching upcoming launches:", error);
     } finally {
@@ -25,11 +38,24 @@ async function getUpcomingLaunches() {
  */
 async function getPastLaunches() {
     showLoading();
+
+    // Check if data exists in localStorage
+    const cachedLaunches = localStorage.getItem("pastLaunches");
+    if (cachedLaunches) {
+        displayLaunches(JSON.parse(cachedLaunches), "Past Launches");
+        hideLoading();
+        return;
+    }
+
     try {
         const response = await fetch(`${SPACEX_API_URL}/past`);
         if (!response.ok) throw new Error("Failed to fetch past launches");
         const data = await response.json();
-        displayLaunches(data.slice(0, 20), "Past Launches"); // Display only 20 launches
+
+        // Save data to localStorage
+        localStorage.setItem("pastLaunches", JSON.stringify(data.slice(0, 20)));
+
+        displayLaunches(data.slice(0, 20), "Past Launches");
     } catch (error) {
         console.error("Error fetching past launches:", error);
     } finally {
@@ -98,7 +124,7 @@ function createLaunchCard(launch) {
 }
 
 /**
- * Toggles the visibility of launch photos when the "View Launch Images" button is clicked. * 
+ * Toggles the visibility of launch photos when the "View Launch Images" button is clicked. 
  */
 function togglePhotos(button) {
     const photosContainer = button.nextElementSibling;
